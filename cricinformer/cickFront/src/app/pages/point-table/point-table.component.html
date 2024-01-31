@@ -1,0 +1,25 @@
+<div class="table-container">
+  <h1 class="text-4xl font-extrabold text-gray-800">Point Table</h1>
+  <br>
+  <table class="shadow-lg text-center min-w-full bg-white border border-gray-300">
+    <thead>
+      <tr>
+        @for (heading of tableHeading; track $index) {
+          <th class="py-2 px-4 border-b">{{heading}}</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of pointTable; track $index) {
+        @if ($index>0){
+        <tr class="hover:bg-gray-100 hover:scale-110 transition-all cursor-pointer " [class.bg-green-200]="$index<=4" [class.bg-red-200]="$index>4">
+          @for (item of row; track $index) {
+            <td class="py-2 px-4 border-b">{{item}}</td>
+          }
+        </tr>
+      }
+      }
+    </tbody>
+  </table>
+
+</div>
